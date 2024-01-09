@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ccat_sim/classes/simClass.dart';
+import 'package:ccat_sim/screens/EndQuizPage.dart';
 import 'package:ccat_sim/widgets/quizWrapper.dart';
 import 'package:flutter/material.dart';
 
@@ -15,31 +16,39 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   SimClass simClass;
   _QuizScreenState(this.simClass);
-  double currentTime = 0;
+  late double currentTime;
+  late StreamSubscription<double> streamSubscription;
+  bool completed = false;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    currentTime = simClass.currentTime as double;
+    endQuiz();
     showTime();
-    runTime();
+    getStream();
+  }
+
+  endQuiz() async {
+    await Future.delayed(Duration(seconds: simClass.maxTime));
+    setState(() {
+      completed = true;
+    });
   }
 
   showTime() {
     setState(() {
       simClass.runTime();
+      streamSubscription = simClass.streamSubscription;
+      currentTime = simClass.currentTime as double;
     });
   }
 
-  void runTime() {
-    Timer timer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
-      if (currentTime != simClass.maxTime - 1) {
-        setState(() {
-          currentTime += 0.015;
-        });
-      } else {
-        timer.cancel();
-      }
+  getStream() {
+    streamSubscription.onData((data) {
+      setState(() {
+        currentTime = data;
+      });
     });
   }
 
@@ -47,18 +56,22 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     double progress = currentTime / simClass.maxTime;
 
-    return Scaffold(
-        appBar: AppBar(),
-        body: Column(
-          children: [
-            LinearProgressIndicator(
-              value: progress,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.7,
-              child: QuizWrapper(simClass: simClass),
-            ),
-          ],
-        ));
+    return (!completed)
+        ? Scaffold(
+            // appBar: AppBar(),
+            body: Column(
+            children: [
+              const SizedBox(height: 20),
+              LinearProgressIndicator(
+                value: progress,
+              ),
+              const SizedBox(height: 20),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.9,
+                child: QuizWrapper(simClass: simClass),
+              ),
+            ],
+          ))
+        : EndQuizScreen(simClass: simClass);
   }
 }

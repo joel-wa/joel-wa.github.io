@@ -16,7 +16,7 @@ class _QuizStartPageState extends State<QuizStartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Begin the CCAT Simulation'),
+        title: const Text('Begin the CCAT Simulation by Joel'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -26,14 +26,14 @@ class _QuizStartPageState extends State<QuizStartPage> {
           children: [
             TextField(
               controller: nameController,
-              decoration: InputDecoration(labelText: 'Name'),
+              decoration: const InputDecoration(labelText: 'Name'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
               controller: emailController,
-              decoration: InputDecoration(labelText: 'Email Address'),
+              decoration: const InputDecoration(labelText: 'Email Address'),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 SimClass.user.userName = nameController.text;
@@ -45,7 +45,7 @@ class _QuizStartPageState extends State<QuizStartPage> {
                       builder: (context) => QuizScreen(simClass: simClass)),
                 );
               },
-              child: Text('Start Quiz'),
+              child: const Text('Start Quiz'),
             ),
           ],
         ),
@@ -65,7 +65,7 @@ class QuizPage extends StatelessWidget {
     // Implement your quiz logic and UI here
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz Page'),
+        title: const Text('Quiz Page'),
       ),
       body: Center(
         child: Column(
@@ -74,12 +74,12 @@ class QuizPage extends StatelessWidget {
           children: [
             Text(
               'Welcome, $name!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               'Email: $email',
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
             // Implement the rest of your quiz UI here
           ],

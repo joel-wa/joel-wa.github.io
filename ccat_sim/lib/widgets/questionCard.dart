@@ -36,7 +36,7 @@ class _QuestionCardState extends State<QuestionCard> {
     return Container(
         margin: EdgeInsets.symmetric(
           horizontal: screenAdjusment.QuestionCardHMargin(context),
-          vertical: screenAdjusment.QuestionCardVMargin(context),
+          // vertical: screenAdjusment.QuestionCardVMargin(context),
         ),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20), color: Colors.lightBlue),
@@ -49,6 +49,7 @@ class _QuestionCardState extends State<QuestionCard> {
                 ),
                 width: double.infinity,
                 margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
                     const SizedBox(height: 10),

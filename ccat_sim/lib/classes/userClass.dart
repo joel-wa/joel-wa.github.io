@@ -18,7 +18,7 @@ class UserClass {
     }
   }
 
-  getScore() {
+  int getScore() {
     int score = _compareLists(simAnswers, userAnswers);
     return score;
   }

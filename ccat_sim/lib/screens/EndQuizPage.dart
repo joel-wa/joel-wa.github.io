@@ -14,12 +14,12 @@ class EndQuizScreen extends StatefulWidget {
 class _EndQuizScreenState extends State<EndQuizScreen> {
   SimClass simClass;
   _EndQuizScreenState(this.simClass);
-  double score = SimClass.user.getScore();
+  double score = SimClass.user.getScore() as double;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quiz End Page'),
+        title: const Text('The Quiz has ended'),
       ),
       body: Center(
         child: Column(
@@ -32,13 +32,16 @@ class _EndQuizScreenState extends State<EndQuizScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              'Your Score: $score',
+              'Your Score: $score/${simClass.questions.length}',
               style: const TextStyle(fontSize: 20),
             ),
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
+                simClass.reset();
                 // Navigate back to the home screen or quiz start screen
+                // Navigator.of(context).pop();
+                // Navigator.of(context).pop();
                 Navigator.push(context,
                     MaterialPageRoute(builder: (BuildContext context) {
                   return QuizStartPage();

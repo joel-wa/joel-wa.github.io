@@ -1,3 +1,4 @@
+import 'package:ccat_sim/backend/serverClass.dart';
 import 'package:ccat_sim/classes/questionClass.dart';
 import 'package:ccat_sim/classes/userClass.dart';
 import 'dart:async';
@@ -6,23 +7,34 @@ class SimClass {
   static late UserClass user;
   SimClass() {
     //Get questions from server First
+    questions = ServerClass().getServerQuestions();
     user = UserClass('userName', 'userEmail', questions);
+    maxTime = 18 * questions.length;
   }
 
-  final List<Question> questions = [
+  List<Question> questions = [
     Question('What is your Name', ['Joel', 'Martin', 'Gabriel'], 'Joel'),
     Question('How old are you', ['Joel', 'Martin', 'Gabriel'], 'Joel'),
     Question('What is the name of your School', ['Joel', 'Martin', 'Gabriel'],
         'Joel'),
   ];
   static bool canAnswer = true;
-  final int maxTime = 10;
-  int currentTime = 9; /////////////////Change to zero to start the timer
+  late int maxTime;
+  double currentTime = 0; /////////////////Change to zero to start the timer
+  final StreamController<double> streamController = StreamController<double>();
+  late StreamSubscription<double> streamSubscription;
 
-  void runTime() {
-    Timer timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (currentTime != maxTime - 1) {
-        currentTime += 1;
+  runTime() {
+    final StreamSink<double> streamSink = streamController.sink;
+
+    streamSubscription = streamController.stream.listen((data) {
+      print('Received data: $data');
+    });
+
+    Timer timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+      if (currentTime <= maxTime) {
+        currentTime += 0.1;
+        streamSink.add(currentTime as double);
         print(currentTime);
       } else {
         timer.cancel();
@@ -30,6 +42,9 @@ class SimClass {
         print('Time up');
       }
     });
+    // streamController.close();
+
+    return true;
   }
 
   List<Question> getQuestions() {
@@ -41,5 +56,11 @@ class SimClass {
       user.answerQuestion(questionNumber, answer);
       print(user.userAnswers);
     }
+  }
+
+  void reset() {
+    currentTime = 0;
+    maxTime = 18 * questions.length;
+    canAnswer = true;
   }
 }

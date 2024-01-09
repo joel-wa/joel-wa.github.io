@@ -1,4 +1,5 @@
 import 'package:ccat_sim/classes/simClass.dart';
+import 'package:ccat_sim/screens/EndQuizPage.dart';
 import 'package:ccat_sim/widgets/questionCard.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,14 @@ class _QuizWrapperState extends State<QuizWrapper> {
           bottom: 50,
           child: ElevatedButton(
               onPressed: () {
+                if (controller.page == simClass.getQuestions().length - 1) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                    return EndQuizScreen(
+                      simClass: simClass,
+                    );
+                  }));
+                }
                 controller.nextPage(
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.ease);
