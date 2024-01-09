@@ -31,7 +31,7 @@ class _QuizStartPageState extends State<QuizStartPage> {
             const SizedBox(height: 20),
             TextField(
               controller: emailController,
-              decoration: const InputDecoration(labelText: 'Email Address'),
+              decoration: const InputDecoration(labelText: 'Email'),
             ),
             const SizedBox(height: 40),
             ElevatedButton(

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ccat_sim/classes/questionClass.dart';
 
 class UserClass {

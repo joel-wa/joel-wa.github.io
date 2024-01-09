@@ -1,13 +1,16 @@
+import 'dart:math';
+
 import 'package:ccat_sim/backend/serverClass.dart';
 import 'package:ccat_sim/classes/questionClass.dart';
 import 'package:ccat_sim/classes/userClass.dart';
 import 'dart:async';
 
 class SimClass {
+  final int numberOfQuestions = 50;
   static late UserClass user;
   SimClass() {
     //Get questions from server First
-    questions = ServerClass().getServerQuestions();
+    questions = ServerClass().getServerQuestions(numberOfQuestions);
     user = UserClass('userName', 'userEmail', questions);
     maxTime = 18 * questions.length;
   }
