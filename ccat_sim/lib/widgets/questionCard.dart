@@ -53,7 +53,8 @@ class _QuestionCardState extends State<QuestionCard> {
                 child: Column(
                   children: [
                     const SizedBox(height: 10),
-                    Text('Question ${questionNumber + 1}'),
+                    Text(
+                        'Question ${questionNumber + 1}: Answer(${question.answer})'),
                     const SizedBox(height: 10),
                     Text(
                       question.question,
