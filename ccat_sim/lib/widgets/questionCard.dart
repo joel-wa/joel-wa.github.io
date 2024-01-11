@@ -30,6 +30,7 @@ class _QuestionCardState extends State<QuestionCard> {
   _QuestionCardState(this.question, this.questionNumber, this.simClass);
 
   int selectedAnswer = -1;
+  bool showAnswer = false;
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +54,19 @@ class _QuestionCardState extends State<QuestionCard> {
                 child: Column(
                   children: [
                     const SizedBox(height: 10),
-                    Text(
-                        'Question ${questionNumber + 1}: Answer(${question.answer})'),
+                    CheckboxListTile(
+                      value: showAnswer,
+                      onChanged: (value) {
+                        setState(() {
+                          showAnswer = value!;
+                        });
+                      },
+                      title: Text('Question: ${questionNumber + 1}'),
+                      subtitle: (showAnswer)
+                          ? Text(question.answer)
+                          : const Text('Tap to View Answer'),
+                    ),
+                    Text('Question ${questionNumber + 1}'),
                     const SizedBox(height: 10),
                     Text(
                       question.question,
