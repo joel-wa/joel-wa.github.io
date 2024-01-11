@@ -194,22 +194,22 @@ class LocalServer {
     Question(
       'Alice bought a shirt for \$25. If there\'s a 20% discount, how much will she pay?',
       ['\$18', '\$20', '\$22', '\$24', '\$26'],
-      '\$24',
+      '\$20',
     ),
     Question(
       'Tom wants to buy books. Each book costs \$12, but there\'s a "buy 2, get 1 free" offer. How much will he pay for 5 books?',
       ['\$36', '\$48', '\$60', '\$72', '\$84'],
-      '\$60',
+      '\$48',
     ),
     Question(
       'Which of the following values is the smallest?',
       ['0.015', '0.025', '0.035', '0.045', '0.055'],
-      '0.035',
+      '0.015',
     ),
     Question(
       'Which of the following values is the highest?',
       ['1.75', '1.65', '1.85', '1.95', '2.05'],
-      '1.85',
+      '2.05',
     ),
     Question(
       '40 is 25% of what number?',
@@ -224,38 +224,38 @@ class LocalServer {
     Question(
       'On Friday, 60 people attended a concert. If 40% more people attended on Saturday, how many people attended the concert over the two days?',
       ['96', '120', '144', '168', '192'],
-      '168',
+      '144',
     ),
     Question(
       'A laptop is priced at \$900. If there\'s a 10% discount for buying two, how much will Alex pay for three laptops?',
       ['\$2,160', '\$2,250', '\$2,340', '\$2,430', '\$2,520'],
-      '\$2,250',
+      '\$2,430',
     ),
-    Question(
-      'It takes Emily 2 hours to paint a fence. James can paint the same fence in 1 hour and 30 minutes. If both start a 5-hour painting job, how long before Emily will James finish?',
-      [
-        '30 minutes',
-        '45 minutes',
-        '1 hour',
-        '1 hour 15 minutes',
-        '1 hour 30 minutes'
-      ],
-      '1 hour',
-    ),
+    // Question(
+    //   'It takes Emily 2 hours to paint a fence. James can paint the same fence in 1 hour and 30 minutes. If both start a 5-hour painting job, how long before Emily will James finish?',
+    //   [
+    //     '30 minutes',
+    //     '45 minutes',
+    //     '1 hour',
+    //     '1 hour 15 minutes',
+    //     '1 hour 30 minutes'
+    //   ],
+    //   '1 hour',
+    // ),
     Question(
       'A group of six numbers has an average of 40. The first five numbers are 35, 38, 40, 42, and 45. What\'s the missing number?',
-      ['50', '52', '55', '58', '60'],
-      '50',
+      ['40', '52', '55', '58', '60'],
+      '40',
     ),
     Question(
       'Sarah has a box containing 100 red and blue balls. The ratio of red balls to blue balls is 3:7. How many blue balls does she have in total?',
       ['30', '40', '50', '60', '70'],
-      '50',
+      '70',
     ),
     Question(
       'Mark has 3 hats, 4 ties, 5 shirts, and 2 jackets in his wardrobe. How many different sets can he compose using a garment in each category each time?',
-      ['100', '150', '200', '250', '300'],
-      '200',
+      ['100', '120', '200', '250', '300'],
+      '120',
     ),
     Question(
       'A laptop is priced at \$850. If Sarah plans to buy 2 laptops, how much will she have to pay at the checkout?',
@@ -270,7 +270,7 @@ class LocalServer {
     Question(
       'Which of the following values is the smallest?',
       ['2.01', '1.99', '2.1', '1.995', '2.05'],
-      '1.995',
+      '1.99',
     ),
     Question(
       'Which of the following values is the highest?',
@@ -298,17 +298,17 @@ class LocalServer {
     Question(
       'Mary bought a camera for \$350. If there\'s a 15% discount, how much will she pay?',
       ['\$297.50', '\$307.50', '\$317.50', '\$327.50', '\$337.50'],
-      '\$327.50',
+      '\$297.50',
     ),
     Question(
       'John wants to buy pens. Each pen costs \$2.50, but there\'s a "buy 3, get 1 free" offer. How much will he pay for 8 pens?',
       ['\$15', '\$20', '\$22.50', '\$25', '\$30'],
-      '\$20',
+      '\$15',
     ),
     Question(
       'Which of the following values is the smallest?',
       ['0.008', '0.018', '0.028', '0.038', '0.048'],
-      '0.038',
+      '0.008',
     ),
     Question(
       'Which of the following values is the highest?',
@@ -327,54 +327,54 @@ class LocalServer {
     ),
     Question(
       'On Monday, 70 people attended a seminar. If 50% more people attended on Tuesday, how many people attended the seminar over the two days?',
-      ['140', '170', '200', '230', '260'],
-      '200',
+      ['140', '175', '200', '230', '260'],
+      '175',
     ),
     Question(
       'A smartphone is priced at \$500. If there\'s a 12% discount for buying two, how much will Emma pay for three smartphones?',
       ['\$1,260', '\$1,320', '\$1,380', '\$1,440', '\$1,500'],
-      '\$1,440',
+      '\$1,380',
     ),
-    Question(
-      'It takes Chris 1.5 hours to assemble a bookshelf. Sarah can assemble the same bookshelf in 1 hour. If both start a 4-hour assembly job, how long before Chris will Sarah finish?',
-      [
-        '30 minutes',
-        '45 minutes',
-        '1 hour',
-        '1 hour 15 minutes',
-        '1 hour 30 minutes'
-      ],
-      '1 hour',
-    ),
+    // Question(
+    //   'It takes Chris 1.5 hours to assemble a bookshelf. Sarah can assemble the same bookshelf in 1 hour. If both start a 4-hour assembly job, how long before Chris will Sarah finish?',
+    //   [
+    //     '30 minutes',
+    //     '45 minutes',
+    //     '1 hour',
+    //     '1 hour 15 minutes',
+    //     '1 hour 30 minutes'
+    //   ],
+    //   '1 hour',
+    // ),
     Question(
       'A group of seven numbers has an average of 50. The first six numbers are 45, 48, 50, 52, 55, and 58. What\'s the missing number?',
-      ['60', '62', '65', '68', '70'],
-      '65',
+      ['60', '42', '65', '68', '70'],
+      '42',
     ),
     Question(
-      'Alex has a box containing 120 red and green balls. The ratio of red balls to green balls is 4:7. How many green balls does he have in total?',
-      ['40', '70', '80', '90', '100'],
-      '80',
+      'Alex has a box containing 120 red and green balls. The ratio of red balls to green balls is 3:7. How many green balls does he have in total?',
+      ['40', '72', '84', '90', '100'],
+      '84',
     ),
     Question(
       'Rachel has 4 dresses, 3 hats, 6 shoes, and 2 jackets in her wardrobe. How many different sets can she compose using a garment in each category each time?',
-      ['120', '150', '180', '200', '220'],
-      '180',
+      ['120', '144', '180', '200', '220'],
+      '144',
     ),
     Question(
       'What would be the next number in the following series? 5 ... 10 ... 7 ... 14 ... 9 ... ?',
       ['16', '18', '20', '22', '24'],
-      '20',
+      '18',
     ),
     Question(
       'What would be the next group of letters in the following series? EG ... FH ... GI ... HJ ... ?',
       ['a) IK', 'b) HI', 'c) JL', 'd) IM'],
-      'd) IM',
+      'd) IK',
     ),
     Question(
       'Identify the pattern in the following series: KP ... LO ... MN ... OP ... ?',
       ['a) PQ', 'b) NO', 'c) QR', 'd) RS'],
-      'a) PQ',
+      'a) QR',
     ),
     Question(
       'What would be the next group of letters in the following series? VX ... WY ... XZ ... YB ... ?',
